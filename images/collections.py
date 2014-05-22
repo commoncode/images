@@ -5,8 +5,8 @@ from .models import Image
 from .serializers import ImageSerializer, ImageInstanceSerializer
 
 
-class ImageInstanceDocumentCollection(DRFDocumentCollection)
-	model = Image
+class ImageInstanceDocumentCollection(DRFDocumentCollection):
+    model = Image
     serializer_class = ImageInstanceSerializer
     name = 'image_instances'
 
