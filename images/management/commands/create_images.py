@@ -11,6 +11,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print "Creating Images"
 
-        for i in range(30):
+        for i in range(5):
             image = ImageFactory()
             print "Added Image: {}".format(image.title)
