@@ -2,11 +2,7 @@ import factory
 
 from django.contrib.webdesign.lorem_ipsum import paragraphs, words
 
-from menus.factories import LinkFactory
-from positions.factories import PositionFactory
-
 from faker import Factory
-
 
 fake = Factory.create()
 
