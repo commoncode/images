@@ -3,9 +3,8 @@ from random import choice
 from django.core.management import call_command
 from django.core.management.base import BaseCommand, CommandError
 
-from menus.models import Image
-
 from ...factories import ImageInstanceFactory
+from ...models import Image
 
 
 class Command(BaseCommand):
