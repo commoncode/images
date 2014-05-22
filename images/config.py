@@ -1,7 +1,8 @@
 from django.apps import AppConfig
 from django.utils.importlib import import_module
 
-class ImagesConfig(AppConfig):
+
+class ImageConfig(AppConfig):
     name = 'images'
     verbose_name = "Images"
 

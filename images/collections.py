@@ -1,20 +1,20 @@
 from cqrs.mongo import mongodb
 from cqrs.collections import DRFDocumentCollection
 
-from .models import Image
+from .models import Image, ImageInstance
 from .serializers import ImageSerializer, ImageInstanceSerializer
 
 
 class ImageInstanceDocumentCollection(DRFDocumentCollection):
-    model = Image
+    model = ImageInstance
     serializer_class = ImageInstanceSerializer
-    name = 'image_instances'
+    name = 'economica__image_instances'
 
 
 class ImageDocumentCollection(DRFDocumentCollection):
     model = Image
     serializer_class = ImageSerializer
-    name = 'images'
+    name = 'economica__images'
 
 
 mongodb.register(ImageDocumentCollection())
