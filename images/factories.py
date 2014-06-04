@@ -14,6 +14,7 @@ fake = Factory.create()
 
 class ImageFactory(factory.django.DjangoModelFactory):
     FACTORY_FOR = 'images.Image'
+    FACTORY_DJANGO_GET_OR_CREATE = ('url', )
 
     title = factory.LazyAttribute(lambda o: words(2, common=False).title())
     url = factory.LazyAttribute(lambda o: 'http://placehold.it/{}x{}'.format(
@@ -22,6 +23,7 @@ class ImageFactory(factory.django.DjangoModelFactory):
 
 class ImageInstanceFactory(factory.django.DjangoModelFactory):
     FACTORY_FOR = 'images.ImageInstance'
+    FACTORY_DJANGO_GET_OR_CREATE = ('image', 'content_type', 'object_id')
 
     image = factory.SubFactory(ImageFactory)
 
