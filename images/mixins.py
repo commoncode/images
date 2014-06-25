@@ -12,8 +12,10 @@ class ImageMixin(object):
 
     @cached_property
     def qset(self):
-        return ImageInstance.objects.filter(object_id=self.pk,
-            content_type=ContentType.objects.get_for_model(self))
+        return ImageInstance.objects.filter(
+            object_id=self.pk,
+            content_type=ContentType.objects.get_for_model(self)
+        )
 
     @property
     def images(self):
@@ -48,6 +50,3 @@ class ImageMixin(object):
             return self.listing_images[0]
         except IndexError:
             return None
-
-
-

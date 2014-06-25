@@ -3,7 +3,7 @@ from random import randint
 import factory
 
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.webdesign.lorem_ipsum import paragraphs, words
+from django.contrib.webdesign.lorem_ipsum import words
 
 from commercia.products.models import Product
 
@@ -27,7 +27,9 @@ class ImageInstanceFactory(factory.django.DjangoModelFactory):
 
     image = factory.SubFactory(ImageFactory)
 
-    content_type = ContentType.objects.get(app_label='products',
-        model='product')
-    object_id = factory.LazyAttribute(lambda o: randint(1,
-        Product.objects.count()))
+    content_type = ContentType.objects.get(
+        app_label='products',
+        model='product'
+    )
+    object_id = factory.LazyAttribute(
+        lambda o: randint(1, Product.objects.count()))
