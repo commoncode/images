@@ -1,11 +1,8 @@
-
 from django.db import models
 from django.contrib.contenttypes import generic
 
 from cqrs.models import CQRSModel
-from entropy.base import (
-    AttributeMixin, EnabledMixin, OrderingMixin, TitleMixin
-)
+from entropy.base import EnabledMixin, OrderingMixin
 
 from .settings import CONTENT_MODELS
 
@@ -13,6 +10,7 @@ from .settings import CONTENT_MODELS
 class ImageInstance(CQRSModel, EnabledMixin, OrderingMixin):
     '''
     Content for Image
+
     '''
 
     # enabled
@@ -21,7 +19,7 @@ class ImageInstance(CQRSModel, EnabledMixin, OrderingMixin):
 
     content_type = models.ForeignKey(
         'contenttypes.ContentType',
-        limit_choices_to={'model__in': CONTENT_MODELS },
+        limit_choices_to={'model__in': CONTENT_MODELS},
     )
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey('content_type', 'object_id')
@@ -55,6 +53,7 @@ class Image(CQRSModel):
         "size":166680,
         "key":"y5dz1osWQaC89JT8dUJG_m10.png",
         "container":"m10-staging","isWriteable":true}]
+
     '''
 
     title = models.CharField(

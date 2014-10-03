@@ -1,8 +1,6 @@
-from rest_framework import serializers
-
 from cqrs.serializers import CQRSSerializer
 
-from .models import *
+from .models import Image, ImageInstance
 
 
 class ImageSerializer(CQRSSerializer):
