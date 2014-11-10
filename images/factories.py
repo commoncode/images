@@ -1,4 +1,4 @@
-from random import randint
+from random import choice, randint
 
 import factory
 
@@ -14,8 +14,25 @@ class ImageFactory(factory.django.DjangoModelFactory):
 
     title = factory.LazyAttribute(lambda o: words(2, common=False).title())
     url = factory.LazyAttribute(
-        lambda o: 'http://placehold.it/{}x{}'.format(
-            randint(300, 600), randint(100, 200)
+        lambda o: 'http://lorempixel.com/{}/{}/{}/'.format(
+            randint(300, 600),
+            randint(100, 200),
+            choice([
+                'abstract',
+                'animals',
+                'business',
+                'cats',
+                'city',
+                'food',
+                'night',
+                'life',
+                'fashion',
+                'people',
+                'nature',
+                'sports',
+                'technics',
+                'transport'
+            ])
         )
     )
 
